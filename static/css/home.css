@@ -1,0 +1,37 @@
+
+      body {
+      padding: 0;
+      margin: 0;
+      font-family: "Nunito Sans";
+      }
+      img{
+      height: 100px;
+      }
+      .card{
+      padding-top: 5px;
+      height: 100%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+      }
+      .bi{
+      text-align: right;
+      padding-right: 5px;
+      font-size: 26px;
+      cursor: pointer;
+      }
+      h5{
+      padding-top: 15px;
+      }
+      .btn{
+      padding: 5px 5px;
+      margin-top: 1px;
+      }
+      @media(max-width: 768px){
+      img{
+      height: 100%;
+      }
+      }
+      @media(max-width: 375px){
+      .container{
+      width: 90%;
+      }
+      }

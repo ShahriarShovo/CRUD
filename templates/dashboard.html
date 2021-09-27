@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block title %}
+    Dashboard 
+{% endblock %}
+{% block main %}
+  <h1>Dashboard </h1>
+
+
+ 
+    <div class="row">
+        <div class="col-sm-8"></div>
+        <br>
+        <div class="col-sm-4">
+            <a class="btn btn-info add-new" href="{{url_for('addbook')}}"> Add New Book</a>
+        </div>
+    </div>
+
+  <h1>{{msg}}</h1>
+
+  
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+          <tr>
+              <th>Book id</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Photo</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      
+      <tbody>
+        {% for book in books %}
+        <tr >
+          <td>{{book.id}}</td>
+          <td>{{book.book_name}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.catagory}}</td>
+          <td>
+            <img src="{{url_for('static', filename='images/bookImages/'+book.book_image)}} " width="60" height="70"/>
+          </td>     
+          
+          <td>
+            
+            <form action="{{url_for('delete_book', id=book.id)}}" method="post">
+              <a href="edit_book/{{book.id}}" class="btn btn-primary">Edit</a>
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete" class="btn btn-danger">
+              
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+
+      </tbody>
+
+
+    
+  </table>
+{% endblock %}
